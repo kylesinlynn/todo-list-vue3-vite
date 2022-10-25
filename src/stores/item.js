@@ -26,7 +26,6 @@ export const useItemStore = defineStore('item', () => {
             items.value.indexOf(items.value.find(i => i.id === item.id)),
             1,
             item)
-        console.log(items.value)
     }
 
     return { items, doneItems, createItem, updateItem }
