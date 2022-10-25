@@ -1,8 +1,8 @@
 <script setup>
-import { reactive } from 'vue'
+import { ref } from 'vue'
 
 const emit = defineEmits(['addItem'])
-const text = reactive('')
+const text = ref('')
 </script>
 
 <template>

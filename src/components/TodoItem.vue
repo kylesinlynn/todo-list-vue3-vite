@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 const props = defineProps(['item'])
-const emit = defineEmits(['item'])
+const emit = defineEmits(['item', 'delete'])
 
 const done = ref(props.item.done)
 </script>
@@ -18,6 +18,7 @@ const done = ref(props.item.done)
           @change="() => emit('item', {id: props.item.id, text: props.item.text, done})"
       >
     </p>
+    <button @click="emit('delete', props.item.id)">Delete</button>
   </div>
 </template>
 

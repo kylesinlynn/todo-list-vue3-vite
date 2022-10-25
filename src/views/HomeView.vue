@@ -7,7 +7,7 @@ import AddTodoItem from "@/components/AddTodoItem.vue"
 
 const itemStore = useItemStore()
 const { items, doneItems } = storeToRefs(itemStore)
-const { createItem, updateItem } = itemStore
+const { createItem, updateItem, deleteItem } = itemStore
 
 </script>
 
@@ -24,6 +24,7 @@ const { createItem, updateItem } = itemStore
       :key="item.id"
       :item="item"
       @item="updateItem"
+      @delete="deleteItem"
   />
 
 </template>
