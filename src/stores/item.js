@@ -27,6 +27,7 @@ export const useItemStore = defineStore('item', () => {
             items.value.indexOf(items.value.find(i => i.id === item.id)),
             1,
             item)
+        console.log(items.value)
     }
     // function deleteItem(id) {
     //     items.value.splice(

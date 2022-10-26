@@ -12,6 +12,7 @@ const update = ref(false)
 function updateItem(text=text.value, updateText=false, toggleDone=done.value, del=false) {
   if (updateText) {
     update.value = !update.value
+    if (update.value) return null
   }
   emit('update', {
     id: props.item.id,
