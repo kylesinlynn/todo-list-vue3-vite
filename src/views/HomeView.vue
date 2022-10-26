@@ -6,8 +6,8 @@ import TodoItem from "@/components/TodoItem.vue";
 import AddTodoItem from "@/components/AddTodoItem.vue"
 
 const itemStore = useItemStore()
-const { items, doneItems } = storeToRefs(itemStore)
-const { createItem, updateItem, deleteItem } = itemStore
+const { items, existingItems } = storeToRefs(itemStore)
+const { createItem, updateItem } = itemStore
 
 </script>
 
@@ -20,11 +20,10 @@ const { createItem, updateItem, deleteItem } = itemStore
   />
 
   <TodoItem
-      v-for="item in items"
+      v-for="item in existingItems"
       :key="item.id"
       :item="item"
-      @item="updateItem"
-      @delete="deleteItem"
+      @update="updateItem"
   />
 
 </template>

@@ -5,13 +5,13 @@ export const useItemStore = defineStore('item', () => {
 
     // state
     const items = ref([
-        {id: 1, text: 'To learn JavaScript', done: false},
-        {id: 2, text: 'To learn Python', done: false},
-        {id: 3, text: 'To learn Programming Basic', done: true}
+        {id: 1, text: 'To learn JavaScript', done: false, delete: false},
+        {id: 2, text: 'To learn Python', done: true, delete: false},
+        {id: 3, text: 'To learn Programming Basic', done: true, delete: true}
     ])
 
     // getters
-    const doneItems = computed(() => items.value.filter(i => i.done))
+    const existingItems = computed(() => items.value.filter(i => !i.delete))
 
     // actions
     function createItem(text) {
@@ -27,11 +27,11 @@ export const useItemStore = defineStore('item', () => {
             1,
             item)
     }
-    function deleteItem(id) {
-        items.value.splice(
-            items.value.indexOf(items.value.find(i => i.id === id)),
-            1)
-    }
+    // function deleteItem(id) {
+    //     items.value.splice(
+    //         items.value.indexOf(items.value.find(i => i.id === id)),
+    //         1)
+    // }
 
-    return { items, doneItems, createItem, updateItem, deleteItem }
+    return { items, existingItems, createItem, updateItem }
 })
