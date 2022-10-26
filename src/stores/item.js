@@ -18,7 +18,8 @@ export const useItemStore = defineStore('item', () => {
         items.value.push({
             id: items.value.length + 1,
             text,
-            done: false
+            done: false,
+            delete: false
         })
     }
     function updateItem(item) {
