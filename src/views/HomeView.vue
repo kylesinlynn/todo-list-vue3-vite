@@ -14,17 +14,20 @@ const { createItem, updateItem } = itemStore
 <template>
 
   <h1>Todo List</h1>
+  <div>
+    <AddTodoItem
+        @addItem="createItem"
+    />
+  </div>
 
-  <AddTodoItem
-    @addItem="createItem"
-  />
-
-  <TodoItem
-      v-for="item in existingItems"
-      :key="item.id"
-      :item="item"
-      @update="updateItem"
-  />
+  <div>
+    <TodoItem
+        v-for="item in existingItems"
+        :key="item.id"
+        :item="item"
+        @update="updateItem"
+    />
+  </div>
 
 </template>
 
